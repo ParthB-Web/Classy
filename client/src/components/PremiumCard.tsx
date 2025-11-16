@@ -12,7 +12,7 @@ export default function PremiumCard({ title, description, linkText, href }: Prem
   return (
     <div className="group relative">
       <Card 
-        className="relative overflow-hidden p-10 border-card-border backdrop-blur-xl transition-all duration-[450ms] ease-out hover:-translate-y-1.5 hover:border-primary hover:shadow-2xl"
+        className="relative overflow-hidden p-10 md:p-12 border-card-border backdrop-blur-xl bg-card/80 transition-all duration-[450ms] ease-out hover:-translate-y-2 hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/10"
         data-testid={`card-${title.toLowerCase().replace(/[:\s]/g, '-')}`}
       >
         <div 
@@ -24,7 +24,7 @@ export default function PremiumCard({ title, description, linkText, href }: Prem
         
         <div className="relative z-10">
           <h2 
-            className="text-3xl mb-4 text-primary"
+            className="text-3xl md:text-4xl mb-5 text-primary group-hover:text-primary/90 transition-colors"
             style={{ fontFamily: 'var(--font-serif)' }}
             data-testid={`text-title-${title.toLowerCase().replace(/[:\s]/g, '-')}`}
           >
@@ -32,7 +32,7 @@ export default function PremiumCard({ title, description, linkText, href }: Prem
           </h2>
           
           <p 
-            className="text-muted-foreground leading-[1.75] text-[1.05rem] mb-6"
+            className="text-muted-foreground leading-[1.8] text-lg mb-8"
             style={{ fontFamily: 'var(--font-serif)' }}
             data-testid={`text-description-${title.toLowerCase().replace(/[:\s]/g, '-')}`}
           >
@@ -41,11 +41,11 @@ export default function PremiumCard({ title, description, linkText, href }: Prem
           
           <a 
             href={href}
-            className="inline-flex items-center gap-1.5 text-primary font-sans transition-all duration-300 border-b border-transparent hover:border-primary"
+            className="inline-flex items-center gap-2 text-primary font-sans text-sm uppercase tracking-wider transition-all duration-300 border-b border-transparent hover:border-primary hover:gap-3"
             data-testid={`link-${title.toLowerCase().replace(/[:\s]/g, '-')}`}
           >
             {linkText}
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
       </Card>

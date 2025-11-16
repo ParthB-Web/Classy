@@ -3,6 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import SectionNav from "@/components/SectionNav";
 import ManifestoSection from "@/components/ManifestoSection";
 import PullQuote from "@/components/PullQuote";
+import CosmicBackground from "@/components/CosmicBackground";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export default function Manifesto() {
   const sections = [
@@ -17,8 +19,10 @@ export default function Manifesto() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="min-h-screen relative">
+      <CosmicBackground />
+      <ReadingProgress />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
         <Link href="/">
           <a 
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-sans mb-8"
@@ -35,7 +39,13 @@ export default function Manifesto() {
           </aside>
 
           <article className="lg:col-span-9 max-w-3xl">
-            <header className="mb-20">
+            <header className="mb-24">
+              <div className="inline-block px-4 py-2 border border-primary/20 backdrop-blur-sm rounded-full mb-8">
+                <span className="text-xs font-sans text-primary tracking-widest uppercase">
+                  Manifesto
+                </span>
+              </div>
+              
               <h1 
                 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-8 leading-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
@@ -43,7 +53,7 @@ export default function Manifesto() {
               >
                 The Closed Architecture
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-serif)' }}>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl" style={{ fontFamily: 'var(--font-serif)' }}>
                 A manifesto on causation, consciousness, and the structure beneath.
               </p>
             </header>

@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import PremiumCard from "@/components/PremiumCard";
 import Footer from "@/components/Footer";
+import CosmicBackground from "@/components/CosmicBackground";
 
 export default function Home() {
   const sections = [
@@ -31,8 +32,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Hero />
+    <div className="min-h-screen relative">
+      <CosmicBackground />
+      <div className="relative z-10">
+        <Hero />
       
       <div className="max-w-[960px] mx-auto px-6 pb-28">
         <div className="space-y-16">
@@ -44,7 +47,8 @@ export default function Home() {
         </div>
       </div>
       
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
