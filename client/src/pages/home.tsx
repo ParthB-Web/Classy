@@ -5,6 +5,12 @@ import Footer from "@/components/Footer";
 export default function Home() {
   const sections = [
     {
+      title: "The Closed Architecture",
+      description: "A manifesto on causation, consciousness, and the structure beneath. An examination of the chain from which nothing escapes.",
+      linkText: "Read the Manifesto",
+      href: "/manifesto"
+    },
+    {
       title: "Watcher: The Cost of Coherence",
       description: "A document shaped by accuracy rather than performance. A quiet examination of what truth demands.",
       linkText: "Read the Book",
@@ -20,12 +26,6 @@ export default function Home() {
       title: "Goodreads",
       description: "A quieter archive — cataloged reading, influence trails, and the surrounding ecosystem of thought.",
       linkText: "Goodreads Profile",
-      href: "#"
-    },
-    {
-      title: "About",
-      description: "Work concerned with the discipline of seeing — the structural layer beneath behavior, belief, and motive.",
-      linkText: "More",
       href: "#"
     }
   ];
