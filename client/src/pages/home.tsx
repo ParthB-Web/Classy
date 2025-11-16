@@ -13,21 +13,30 @@ export default function Home() {
     },
     {
       title: "Watcher: The Cost of Coherence",
-      description: "A document shaped by accuracy rather than performance. A quiet examination of what truth demands.",
-      linkText: "Read the Book",
-      href: "#"
+      description: "A document shaped by accuracy rather than performance. A quiet examination of what truth demands. Available globally in multiple formats.",
+      linkText: "Get the Book",
+      href: "/book",
+      isBook: true
     },
     {
-      title: "Substack",
+      title: "Cosmic Coffee Stains",
       description: "All writing lives here — ongoing work on coherence, perception, and internal mechanics.",
       linkText: "Visit Substack",
-      href: "#"
+      href: "https://cosmiccoffeestains.substack.com",
+      external: true
     },
     {
       title: "Goodreads",
       description: "A quieter archive — cataloged reading, influence trails, and the surrounding ecosystem of thought.",
       linkText: "Goodreads Profile",
-      href: "#"
+      href: "https://www.goodreads.com/author/show/58297071.PARTH_B_",
+      external: true
+    },
+    {
+      title: "Contact",
+      description: "Send a message directly. Thoughts, questions, or quiet correspondence — all are welcome.",
+      linkText: "Write to Me",
+      href: "/contact"
     }
   ];
 
@@ -37,8 +46,8 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
       
-      <div className="max-w-[960px] mx-auto px-6 pb-28">
-        <div className="space-y-16">
+      <div className="max-w-[960px] mx-auto px-4 sm:px-6 pb-16 md:pb-28">
+        <div className="space-y-10 md:space-y-16">
           {sections.map((section, index) => (
             <div key={index}>
               <PremiumCard {...section} />

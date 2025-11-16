@@ -89,7 +89,7 @@ export default function CosmicBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-40"
+      className="fixed inset-0 pointer-events-none opacity-30 dark:opacity-40"
       style={{ zIndex: 0 }}
     />
   );
