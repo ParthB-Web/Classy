@@ -41,21 +41,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
       <CosmicBackground />
       <div className="relative z-10">
         <Hero />
-      
-      <div className="max-w-[960px] mx-auto px-4 sm:px-6 pb-16 md:pb-28">
-        <div className="space-y-10 md:space-y-16">
-          {sections.map((section, index) => (
-            <div key={index}>
-              <PremiumCard {...section} />
-            </div>
-          ))}
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
+            {sections.map((section, index) => (
+              <div
+                key={index}
+                className="opacity-0"
+                style={{
+                  animation: `fadeUp 0.8s ${0.2 + index * 0.1}s ease forwards`
+                }}
+              >
+                <PremiumCard {...section} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      
+
         <Footer />
       </div>
     </div>

@@ -7,17 +7,34 @@ export default function CosmicBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
+      width = window.innerWidth;
+      height = window.innerHeight;
     };
 
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
 
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resizeCanvas, 200);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    const starCount = width < 768 ? 50 : 80;
     const stars: Array<{
       x: number;
       y: number;
@@ -27,10 +44,10 @@ export default function CosmicBackground() {
       twinklePhase: number;
     }> = [];
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < starCount; i++) {
       stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * width,
+        y: Math.random() * height,
         radius: Math.random() * 1.2 + 0.3,
         opacity: Math.random() * 0.5 + 0.3,
         twinkleSpeed: Math.random() * 0.002 + 0.001,
@@ -42,7 +59,7 @@ export default function CosmicBackground() {
     let time = 0;
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, width, height);
 
       stars.forEach((star) => {
         const twinkle = Math.sin(time * star.twinkleSpeed + star.twinklePhase);
@@ -81,7 +98,8 @@ export default function CosmicBackground() {
     animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimeout);
       cancelAnimationFrame(animationFrame);
     };
   }, []);

@@ -30,23 +30,23 @@ export default function Book() {
   ];
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
       <CosmicBackground />
       <div className="relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <Link href="/">
-            <a 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary active:text-primary transition-colors duration-300 font-sans mb-8 md:mb-12 touch-manipulation"
+            <a
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary active:text-primary transition-colors duration-300 font-sans mb-12 md:mb-16 touch-manipulation group"
               data-testid="link-back-home"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
               Return
             </a>
           </Link>
 
-          <div className="text-center mb-12 md:mb-16">
-            <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 border border-primary/20 backdrop-blur-sm rounded-full mb-6 md:mb-8">
-              <span className="text-[10px] md:text-xs font-sans text-primary tracking-widest uppercase">
+          <div className="text-center mb-16 md:mb-20">
+            <div className="inline-block px-4 py-2 border border-primary/20 backdrop-blur-sm rounded-full mb-8 opacity-0" style={{ animation: 'fadeUp 0.8s 0.2s ease forwards' }}>
+              <span className="text-xs font-sans text-primary tracking-widest uppercase">
                 Book
               </span>
             </div>
